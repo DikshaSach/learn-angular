@@ -6,17 +6,18 @@
     <p>Add bucket list item({{itemCount }})</p>
   </div>
 </div>
-<div class="container color-light">
+<div class="container color-light" [@goals]='goals.length'>
   <div class="col1">
-    <p class="sm">U this form to enter new buccket liste</p>
+    <p class="sm">U this form to enter new bucket liste</p>
   <form>
     <input type="text" class="txt" name="item" placedholer="lifegoal" [(ngModel)]="goalText">
     <input type="submit" class="btn"  [value]="btnText" (click)="addItem()">
   </form>
   </div>
   <div class="col1">
-    <p class="life-container" *ngFor="let goal of goals">
+    <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
       {{ goal }}
-    </p>
+      </p>
+    
   </div>
 </div>
